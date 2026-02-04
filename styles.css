@@ -1,151 +1,108 @@
-/* Global Layout & Container */
+/* Global Layout Override for Water.css */
 body {
-  font-family:
-    system-ui,
-    -apple-system,
-    sans-serif;
-  background-color: #f4f4f9;
-  min-width: 95%;
-  margin: auto;
-  padding: 2rem;
-
+  max-width: none !important; /* Override Water.css default constraint */
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-height: 100vh;
 }
 
+/* Controls Container */
 .container {
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 600px;
+  max-width: 800px; /* Keep controls readable width */
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; /* Separation of concerns with consistent spacing */
-  margin-bottom: 2rem;
+  gap: 1.5rem;
 }
 
-/* Header & Status Section */
+/* Header Section */
 .header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #eee;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border);
   padding-bottom: 1rem;
 }
 
 .header h1 {
   margin: 0;
   font-size: 1.5rem;
-  color: #333;
 }
 
-/* Status Badge */
+/* Status Badge - Minimal */
 .status-badge {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: 600;
-  font-size: 0.875rem;
-  transition: all 0.3s ease;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: bold;
 }
 
 .status-indicator {
-  width: 10px;
-  height: 10px;
+  width: 0.6em;
+  height: 0.6em;
   border-radius: 50%;
-  display: inline-block;
+  background-color: currentColor;
 }
 
-/* Status States */
 .status-off {
-  background-color: #fbecec;
-  color: #c0392b;
-  border: 1px solid #e6b0aa;
-}
-
-.status-off .status-indicator {
-  background-color: #c0392b;
-  box-shadow: 0 0 0 2px rgba(192, 57, 43, 0.2);
+  color: #d32f2f;
+  background-color: #ffebee;
 }
 
 .status-on {
-  background-color: #e8f8f5;
-  color: #27ae60;
-  border: 1px solid #a9dfbf;
-}
-
-.status-on .status-indicator {
-  background-color: #27ae60;
-  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+  color: #2e7d32;
+  background-color: #e8f5e9;
 }
 
 /* Input Group */
 .input-group {
   display: flex;
-  gap: 10px;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .input-group input {
   flex: 1;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 1rem;
+  min-width: 250px; /* Ensure usability on mobile */
+  margin-bottom: 0; /* Override Water.css margin */
 }
 
-.input-group button {
-  padding: 0.75rem 1.5rem;
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.input-group button:hover {
-  background-color: #2980b9;
-}
-
-/* Log Window */
+/* Log Window - Full Width & Distinct */
 .log-window {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  background-color: #1e1e1e;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  border-radius: 8px;
   padding: 1rem;
-  border-top: 1px solid #333;
-  width: 100%;
-  min-height: 500px;
-  box-sizing: border-box;
-  flex: 1;
+  min-height: 400px;
 }
 
 .log-header {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  color: #aaa;
-  letter-spacing: 1px;
-  font-weight: bold;
+  color: #888;
+  margin-bottom: 0.5rem;
   border-bottom: 1px solid #333;
   padding-bottom: 0.5rem;
-  margin-bottom: 0.5rem;
-  display: block;
 }
 
 #log {
+  flex: 1;
   margin: 0;
-  height: 100%;
+  padding: 0;
   overflow-y: auto;
-  font-family: "Consolas", "Monaco", monospace;
+  font-family: "Menlo", "Consolas", monospace;
   font-size: 0.9rem;
-  color: #d4d4d4;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
@@ -154,16 +111,22 @@ body {
 #log::-webkit-scrollbar {
   width: 8px;
 }
-
 #log::-webkit-scrollbar-track {
-  background: #1e1e1e;
+  background: #1a1a1a;
 }
-
 #log::-webkit-scrollbar-thumb {
-  background: #555;
+  background: #444;
   border-radius: 4px;
 }
 
-#log::-webkit-scrollbar-thumb:hover {
-  background: #777;
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+    gap: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
