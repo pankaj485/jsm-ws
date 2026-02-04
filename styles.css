@@ -1,0 +1,169 @@
+/* Global Layout & Container */
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background-color: #f4f4f9;
+  min-width: 95%;
+  margin: auto;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.container {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Separation of concerns with consistent spacing */
+  margin-bottom: 2rem;
+}
+
+/* Header & Status Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Status Badge */
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* Status States */
+.status-off {
+  background-color: #fbecec;
+  color: #c0392b;
+  border: 1px solid #e6b0aa;
+}
+
+.status-off .status-indicator {
+  background-color: #c0392b;
+  box-shadow: 0 0 0 2px rgba(192, 57, 43, 0.2);
+}
+
+.status-on {
+  background-color: #e8f8f5;
+  color: #27ae60;
+  border: 1px solid #a9dfbf;
+}
+
+.status-on .status-indicator {
+  background-color: #27ae60;
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.2);
+}
+
+/* Input Group */
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.input-group button {
+  padding: 0.75rem 1.5rem;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.input-group button:hover {
+  background-color: #2980b9;
+}
+
+/* Log Window */
+.log-window {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-top: 1px solid #333;
+  width: 100%;
+  min-height: 500px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.log-header {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #aaa;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+#log {
+  margin: 0;
+  height: 100%;
+  overflow-y: auto;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.9rem;
+  color: #d4d4d4;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* Scrollbar styling for log window */
+#log::-webkit-scrollbar {
+  width: 8px;
+}
+
+#log::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+#log::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 4px;
+}
+
+#log::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
